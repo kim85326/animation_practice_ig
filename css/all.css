@@ -323,6 +323,203 @@ body {
   background: -o-linear-gradient(#4c68d7, #8a3ab9, #bc2a8d, #cd486b, #e95950, #fbad50, #fccc63);
   background: linear-gradient(#4c68d7, #8a3ab9, #bc2a8d, #cd486b, #e95950, #fbad50, #fccc63); }
 
+.camera {
+  width: 200px;
+  height: 200px;
+  border: 10px white solid;
+  border-radius: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-animation: ball_up 0.5s 1s both ,  ball_down 0.2s 1.5s ease-in forwards ,  camera_in 0.3s 1.7s forwards;
+  animation: ball_up 0.5s 1s both ,  ball_down 0.2s 1.5s ease-in forwards ,  camera_in 0.3s 1.7s forwards;
+  -webkit-perspective: 600px;
+  perspective: 600px; }
+
+@-webkit-keyframes ball_up {
+  0% {
+    top: 50%;
+    width: 5px;
+    height: 5px;
+    opacity: 0;
+    background-color: white; }
+  10% {
+    opacity: 1; }
+  100% {
+    top: 10%;
+    width: 5px;
+    height: 5px;
+    background-color: white; } }
+
+@keyframes ball_up {
+  0% {
+    top: 50%;
+    width: 5px;
+    height: 5px;
+    opacity: 0;
+    background-color: white; }
+  10% {
+    opacity: 1; }
+  100% {
+    top: 10%;
+    width: 5px;
+    height: 5px;
+    background-color: white; } }
+
+@-webkit-keyframes ball_down {
+  0% {
+    top: 10%; }
+  100% {
+    top: 50%; } }
+
+@keyframes ball_down {
+  0% {
+    top: 10%; }
+  100% {
+    top: 50%; } }
+
+@-webkit-keyframes camera_in {
+  0% {
+    width: 5px;
+    height: 5px; }
+  80% {
+    width: 250px;
+    height: 250px; }
+  100% {
+    width: 200px;
+    height: 200px;
+    background-color: inherit; } }
+
+@keyframes camera_in {
+  0% {
+    width: 5px;
+    height: 5px; }
+  80% {
+    width: 250px;
+    height: 250px; }
+  100% {
+    width: 200px;
+    height: 200px;
+    background-color: inherit; } }
+
+.lens {
+  width: 100px;
+  height: 100px;
+  border: 15px white solid;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-animation: lens_in 0.3s 1.8s backwards;
+  animation: lens_in 0.3s 1.8s backwards; }
+
+@-webkit-keyframes lens_in {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0; }
+  10% {
+    opacity: 1; }
+  80% {
+    width: 125px;
+    height: 125px; }
+  100% {
+    width: 100px;
+    height: 100px; } }
+
+@keyframes lens_in {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0; }
+  10% {
+    opacity: 1; }
+  80% {
+    width: 125px;
+    height: 125px; }
+  100% {
+    width: 100px;
+    height: 100px; } }
+
+.flashlight {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  -webkit-animation: flashlight_in 0.3s 2.2s backwards;
+  animation: flashlight_in 0.3s 2.2s backwards; }
+  .flashlight:after {
+    content: '';
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    -webkit-animation: flash 0.3s 3s;
+    animation: flash 0.3s 3s; }
+
+@-webkit-keyframes flashlight_in {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0); }
+  80% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2); }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+@keyframes flashlight_in {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0); }
+  80% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2); }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+@-webkit-keyframes flash {
+  0% {
+    opacity: 0; }
+  25% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  75% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes flash {
+  0% {
+    opacity: 0; }
+  25% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  75% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
 .picture {
   width: 250px;
   height: 250px;

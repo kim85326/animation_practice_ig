@@ -1,152 +1,152 @@
-// // camera
-// .camera{
-// 	width: $camera_size;
-// 	height: $camera_size;
-// 	border: $camera_border_size white solid;
-// 	border-radius: ($camera_size / 4);
-// 	@include absolute_center;
+// camera
+.camera{
+	width: $camera_size;
+	height: $camera_size;
+	border: $camera_border_size white solid;
+	border-radius: ($camera_size / 4);
+	@include absolute_center;
 
-// 	// 動畫
-// 	animation: 
-// 		ball_up 0.5s 1s both , 
-// 		ball_down 0.2s 1.5s ease-in forwards , 
-// 		camera_in 0.3s 1.7s forwards;
+	// 動畫
+	animation: 
+		ball_up 0.5s 1s both , 
+		ball_down 0.2s 1.5s ease-in forwards , 
+		camera_in 0.3s 1.7s forwards;
 
-// 	// 想像成物件距離螢幕的距離，相對picture
-// 	perspective: 600px;
-// }
+	// 想像成物件距離螢幕的距離，相對picture
+	perspective: 600px;
+}
 
-// @keyframes ball_up{
-// 	0%{
-// 		top: 50%;
-// 		width: $camera_ball_size;
-// 		height: $camera_ball_size;
-// 		opacity: 0;
-// 		background-color: white;
-// 	}
-// 	10%{
-// 		opacity: 1;
-// 	}
-// 	100%{
-// 		top: 10%;
-// 		width: $camera_ball_size;
-// 		height: $camera_ball_size;
-// 		background-color: white;
-// 	}
-// }
+@keyframes ball_up{
+	0%{
+		top: 50%;
+		width: $camera_ball_size;
+		height: $camera_ball_size;
+		opacity: 0;
+		background-color: white;
+	}
+	10%{
+		opacity: 1;
+	}
+	100%{
+		top: 10%;
+		width: $camera_ball_size;
+		height: $camera_ball_size;
+		background-color: white;
+	}
+}
 
-// @keyframes ball_down{
-// 	0%{
-// 		top: 10%;
-// 	}
-// 	100%{
-// 		top: 50%;
-// 	}
-// }
+@keyframes ball_down{
+	0%{
+		top: 10%;
+	}
+	100%{
+		top: 50%;
+	}
+}
 
-// @keyframes camera_in{
-// 	0%{
-// 		width: $camera_ball_size;
-// 		height: $camera_ball_size;
-// 	}
-// 	// 讓他有彈一下的感覺
-// 	80%{
-// 		width: $camera_size * 1.25;
-// 		height: $camera_size * 1.25;
-// 	}
-// 	100%{
-// 		width: $camera_size;
-// 		height: $camera_size;
-// 		background-color: inherit;
-// 	}
-// }
+@keyframes camera_in{
+	0%{
+		width: $camera_ball_size;
+		height: $camera_ball_size;
+	}
+	// 讓他有彈一下的感覺
+	80%{
+		width: $camera_size * 1.25;
+		height: $camera_size * 1.25;
+	}
+	100%{
+		width: $camera_size;
+		height: $camera_size;
+		background-color: inherit;
+	}
+}
 
-// // lens
-// .lens{
-// 	width: ($camera_size / 2);
-// 	height: ($camera_size / 2);
-// 	border: ($camera_border_size * 1.5) white solid;
-// 	border-radius: 50%;
-// 	@include absolute_center;
+// lens
+.lens{
+	width: ($camera_size / 2);
+	height: ($camera_size / 2);
+	border: ($camera_border_size * 1.5) white solid;
+	border-radius: 50%;
+	@include absolute_center;
 
-// 	// 動畫
-// 	animation: 
-// 		lens_in 0.3s 1.8s backwards;
-// }
+	// 動畫
+	animation: 
+		lens_in 0.3s 1.8s backwards;
+}
 
-// @keyframes lens_in{
-// 	0%{
-// 		width: 0;
-// 		height: 0;
-// 		opacity: 0;
-// 	}
-// 	10%{
-// 		opacity: 1;
-// 	}
-// 	80%{
-// 		width: ($camera_size / 2 * 1.25);
-// 		height: ($camera_size / 2 * 1.25);
-// 	}
-// 	100%{
-// 		width: ($camera_size / 2);
-// 		height: ($camera_size / 2);
-// 	}
-// }
+@keyframes lens_in{
+	0%{
+		width: 0;
+		height: 0;
+		opacity: 0;
+	}
+	10%{
+		opacity: 1;
+	}
+	80%{
+		width: ($camera_size / 2 * 1.25);
+		height: ($camera_size / 2 * 1.25);
+	}
+	100%{
+		width: ($camera_size / 2);
+		height: ($camera_size / 2);
+	}
+}
 
-// // flashlight
-// .flashlight{
-// 	width: 20px;
-// 	height: 20px;
-// 	border-radius: 50%;
-// 	background-color: white;
-// 	position: absolute;
-// 	top: 20px;
-// 	right: 20px;
+// flashlight
+.flashlight{
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: white;
+	position: absolute;
+	top: 20px;
+	right: 20px;
 		
-// 	// 動畫
-// 	animation: 
-// 		flashlight_in 0.3s 2.2s backwards;
+	// 動畫
+	animation: 
+		flashlight_in 0.3s 2.2s backwards;
 
-// 	&:after{
-// 		content: '';
-// 		display: inline-block;
-// 		width: $camera_size;
-// 		height: $camera_size;
-// 		border-radius: 50%;
-// 		background-color: rgba(256,256,256,0.5);
-// 		@include absolute_center;
-// 		opacity: 0;
-// 		animation: flash 0.3s 3s;
-// 	}
-// }
+	&:after{
+		content: '';
+		display: inline-block;
+		width: $camera_size;
+		height: $camera_size;
+		border-radius: 50%;
+		background-color: rgba(256,256,256,0.5);
+		@include absolute_center;
+		opacity: 0;
+		animation: flash 0.3s 3s;
+	}
+}
 
-// @keyframes flashlight_in{
-// 	0%{
-// 		transform: scale(0);
-// 	}
-// 	80%{
-// 		transform: scale(1.2);
-// 	}
-// 	100%{
-// 		transform: scale(1);
-// 	}
-// }
+@keyframes flashlight_in{
+	0%{
+		transform: scale(0);
+	}
+	80%{
+		transform: scale(1.2);
+	}
+	100%{
+		transform: scale(1);
+	}
+}
 
-// @keyframes flash{
-// 	0%{
-// 		opacity: 0;
-// 	}
-// 	25%{
-// 		opacity: 1;
-// 	}
-// 	50%{
-// 		opacity: 0;
-// 	}
-// 	75%{
-// 		opacity: 1;
-// 	}
-// 	100%{
-// 		opacity: 0;
-// 	}
-// }
+@keyframes flash{
+	0%{
+		opacity: 0;
+	}
+	25%{
+		opacity: 1;
+	}
+	50%{
+		opacity: 0;
+	}
+	75%{
+		opacity: 1;
+	}
+	100%{
+		opacity: 0;
+	}
+}
 
