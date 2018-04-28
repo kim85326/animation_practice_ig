@@ -1,0 +1,174 @@
+// picture
+.picture{
+	// box-sizing: border-box;
+	width: $picture_size;
+	height: $picture_size;
+	background-color: #ccc;
+	border: $picture_border_size white solid;
+	border-bottom: $picture_border_bottom_size white solid;
+	@include absolute_center;
+
+	// 動畫
+	animation: 
+		picture_in 1s 3.5s backwards ,
+		picture_flip 1s 4.5s;
+	
+	overflow: hidden;
+	transition: all 0.3s;
+
+	&:hover{
+		width: $picture_size_lg;
+		height: auto;
+		background-color: white;
+		border: 0;
+		padding: $picture_size_lg_padding;
+		box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+
+		& .picture_info{
+			// 動畫延遲
+			opacity: 1;
+			transform: translateX(0%);
+			transition: all 1s 0.3s;
+		}
+	}
+
+	& .img_box{
+	animation: show_img 1s 5s backwards;
+	height: 300px;
+	overflow: hidden;
+		& img{
+			width: 100%;
+		}
+	}
+
+	& .picture_info{
+		font-size: $picture_info_font_size;
+		color: $picture_info_color;
+		padding: 2px 16px;
+		padding-bottom: 0;
+
+		// 動畫
+		opacity: 0;
+		transform: translateX(-20%);
+	}
+}
+
+@keyframes picture_in{
+	0%{
+		width: $picture_size_xs;
+		height: 0;
+		top: 100%;
+		transform: translate(-50%,0);
+		opacity: 0;
+	}
+	100%{
+		width: $picture_size_xs;
+		height: $picture_size_xs;
+		top: 100%;
+		transform: translate(-50%,0);
+	}
+}
+
+@keyframes picture_flip{
+	0%{
+		width: $picture_size_xs;
+		height: $picture_size_xs;
+		top: 100%;
+		transform: translate(-50%,0) rotateX(0deg);
+	}
+	100%{
+		top: 50%;
+		transform: translate(-50%,-50%) rotateX(360deg);
+	}
+}
+
+@keyframes show_img{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+
+.username {
+	font-weight: 600;
+	margin-right: 0.3em;
+}
+
+.description{
+	padding-top: 5px;
+	margin-bottom: 4px;
+}
+
+.picture_content{
+	padding-top: 5px;
+	padding-bottom: 6px;
+}
+
+.more_comments{
+	color: $more_comments_color;
+	margin-bottom: 8px;
+}
+
+.comment{
+	word-wrap: break-word;
+	padding-top: 5px;
+	padding-bottom: 6px;
+}
+
+.time{
+	font-size: $time_font_size;
+    letter-spacing: $time_letter_spacing;
+   	color: $time_color;
+}
+
+.my_form_control{
+	display: flex;
+	& .my_form_control_input{
+		flex-grow: 1;
+		border: 0;
+		&::placeholder {
+		    color: $input_placeholder_color;
+		}
+	}
+	& .my_form_control_btn{
+		border: 0;
+	}
+}
+
+.my_form_control_btn_enable{
+	color: $new_comment_btn_color_enable;
+}
+
+.my_form_control_btn_disable{
+	color: $new_comment_btn_color_disable;
+}
+
+.actions{
+	margin-left: -8px;
+	& .action{
+		display: inline-block;
+		padding: 8px;
+		cursor: pointer;
+		&.like.active .like_icon{
+			background-position: -157px -510px;
+		}
+	}
+}
+
+.action_icon{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	&.like_icon{
+		background-image: $ig_icon_url;
+    	background-repeat: no-repeat;
+    	background-position: -293px -399px;
+	}
+	&.add_comment_icon{
+		background-image: $ig_icon_url;
+    	background-repeat: no-repeat;
+    	background-position: -319px -399px;
+	}
+}
