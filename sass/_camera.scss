@@ -1,0 +1,129 @@
+// camera
+.camera{
+	width: $camera_size;
+	height: $camera_size;
+	border: $camera_border_size white solid;
+	border-radius: ($camera_size / 4);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+
+	// 動畫
+	animation: 
+		ball_up 0.5s 1s both , 
+		ball_down 0.2s 1.5s ease-in forwards , 
+		camera_in 0.3s 1.7s forwards;
+}
+
+@keyframes ball_up{
+	0%{
+		top: 50%;
+		width: $camera_ball_size;
+		height: $camera_ball_size;
+		opacity: 0;
+		background-color: white;
+	}
+	10%{
+		opacity: 1;
+	}
+	100%{
+		top: 10%;
+		width: $camera_ball_size;
+		height: $camera_ball_size;
+		background-color: white;
+	}
+}
+
+@keyframes ball_down{
+	0%{
+		top: 10%;
+	}
+	100%{
+		top: 50%;
+	}
+}
+
+@keyframes camera_in{
+	0%{
+		width: $camera_ball_size;
+		height: $camera_ball_size;
+	}
+	// 讓他有彈一下的感覺
+	80%{
+		width: $camera_size * 1.25;
+		height: $camera_size * 1.25;
+	}
+	100%{
+		width: $camera_size;
+		height: $camera_size;
+		background-color: inherit;
+	}
+}
+
+// lens
+.lens{
+	width: ($camera_size / 2);
+	height: ($camera_size / 2);
+	border: ($camera_border_size * 1.5) white solid;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+
+	// 動畫
+	animation: 
+		lens_in 0.3s 1.8s backwards;
+}
+
+@keyframes lens_in{
+	0%{
+		width: 0;
+		height: 0;
+		opacity: 0;
+	}
+	10%{
+		opacity: 1;
+	}
+	80%{
+		width: ($camera_size / 2 * 1.25);
+		height: ($camera_size / 2 * 1.25);
+	}
+	100%{
+		width: ($camera_size / 2);
+		height: ($camera_size / 2);
+	}
+}
+
+// flashlight
+.flashlight{
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: white;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+		
+	// 動畫
+	animation: 
+		flashlight_in 0.3s 2.2s backwards;
+}
+
+@keyframes flashlight_in{
+	0%{
+		transform: scale(0);
+	}
+	80%{
+		transform: scale(1.2);
+	}
+	100%{
+		transform: scale(1);
+	}
+}
+
+
+
+
+
