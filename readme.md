@@ -1,5 +1,6 @@
 # 練習 css 的 animation - instagram
-在練習的同時，加入最近學的 sass<br>
+在練習的同時<br>
+加入最近學的 sass<br>
 因為工作完全沒用到 sass (工作佔據我大部分的時間啊啊啊啊)<br>
 所以也沒有機會可以練習<br>
 至於動畫...<br>
