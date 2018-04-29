@@ -1,12 +1,33 @@
 $(document).ready(function(){
 
+	// 將原本 wrapper 的 height 記錄起來
+	var origin_height = $('.wrapper').height();
+	
+	// 設定 wrapper 在 hover 和沒有 hover 的 height
+    $(".picture").hover(
+    	function () {
+			reload_wrapper_height();
+      	}, 
+		function () {
+			$('.wrapper').height( origin_height );
+      	}	
+	);
+	
+	function reload_wrapper_height(){
+		var leng = $('.comment').length;
+		console.log(leng);
+		if(leng>3){
+			$('.wrapper').height( origin_height+(leng-3)*28 );
+		}
+	}
+
 	// 愛心點擊事件綁定
 	$('.action.like').click(function(event) {
 		event.preventDefault();
 		if($(this).hasClass('active')){
 			$(this).removeClass('active');
-			var like_count = parseInt($('.like_count a span').text(),10);
-			$('.like_count a span').text(like_count-1);
+			var like_count = parseInt($('.like_count span').text(),10);
+			$('.like_count span').text(like_count-1);
 
 			// 從說讚的用戶移除
 			$('#like_list .modal_content_body').find('.username').each(function(index, el) {
@@ -17,8 +38,8 @@ $(document).ready(function(){
 			
 		}else{
 			$(this).addClass('active');
-			var like_count = parseInt($('.like_count a span').text(),10);
-			$('.like_count a span').text(like_count+1);
+			var like_count = parseInt($('.like_count span').text(),10);
+			$('.like_count span').text(like_count+1);
 
 			// 新增至說讚的用戶
 			$('#like_list').find('.modal_content_body').append(
@@ -74,6 +95,11 @@ $(document).ready(function(){
 					</div>
 	  			`).children().last().show();
   		}
+
+  		// 重新計算捲軸長度
+  		reload_wrapper_height();
+		// 捲軸至底部  		
+  		window.scrollTo(0,document.body.scrollHeight);
 	});
 
 	// 刪除留言事件綁定

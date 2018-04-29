@@ -4,7 +4,11 @@
 	height: $camera_size;
 	border: $camera_border_size white solid;
 	border-radius: ($camera_size / 4);
-	@include absolute_center;
+	// @include absolute_center;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
 
 	// 動畫
 	animation: 
