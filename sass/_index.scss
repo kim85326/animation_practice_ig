@@ -7,6 +7,7 @@
 a,a:active, a:focus, a:visited {
 	text-decoration: none;
 	color: inherit;
+	cursor: pointer;
 }
 
 // 設定預設 hr 的顏色
@@ -14,8 +15,8 @@ hr{
 	border: 1px solid #efefef;
 }
 
-body{
-	height: 100vh;
+html,body{
+	height: 100%;
 }
 
 .wrapper{
@@ -25,10 +26,12 @@ body{
 }
 
 @import "camera";
-@import "picture"
+@import "picture";
+@import "modal";
 
-
-
+.comment , .new_comment , .modal{
+	display: none;
+}
 
 
 

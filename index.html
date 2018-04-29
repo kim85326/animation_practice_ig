@@ -4,6 +4,11 @@
 	<meta charset="UTF-8">
 	<title>instagram</title>
 	<link rel="stylesheet" href="css/all.css">
+	<!-- 引入jQuery -->
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="wrapper">
@@ -12,23 +17,23 @@
 			<div class="flashlight"></div>
 			<div class="picture">
 				<div class="img_box">
-					<img src="./img/me.png" alt="">
+					<img src="./img/me.png" alt="ig照片">
 				</div>
 				<div class="picture_info">
 					<div class="actions">
-						<a href="#" class="action like active">
+						<a href="#" class="action like">
 							<span class="action_icon like_icon"></span>
 						</a>
-						<a href="#" class="action add_comment">
+						<a href="#" class="action add_new_comment">
 							<span class="action_icon add_comment_icon"></span>
 						</a>
 					</div>
 					<div class="like_count">
-						<a href="#">88個讚</a>
+						<a href="#"><span>5</span>個讚</a>
 					</div>
 					<div class="description">
 						<div class="picture_content">
-							<a href="https://www.instagram.com/elaine85326/" target="_blank" class="username">
+							<a href="https://www.instagram.com/elaine85326" target="_blank" class="username" data-username="elaine85326">
 								elaine85326
 							</a>
 							<span>
@@ -42,43 +47,41 @@
 						</div>
 						<div class="comments">
 							<div class="comment">
-								<a href="https://www.instagram.com/elaine85326/" target="_blank" class="username">
+								<a class="username" data-username="jiayiii106">
 									jiayiii106
 								</a>
 								<span>
-									嗨
+									恭喜你XD
 								</span>
 							</div>
 							<div class="comment">
-								<a href="https://www.instagram.com/elaine85326/" target="_blank" class="username">
-									jiayiii106
+								<a class="username" data-username="raoya">
+									raoya
 								</a>
 								<span>
-									嗨2
+									好快我們都畢業了QAQ
 								</span>
 							</div>
 							<div class="comment">
-								<a href="https://www.instagram.com/elaine85326/" target="_blank" class="username">
-									jiayiii106
+								<a class="username" data-username="yowei_andy">
+									yowei_andy
 								</a>
 								<span>
-									嗨3
+									祝妳畢業快樂唷！
 								</span>
 							</div>
 						</div>
 					</div>
 					
 					<div class="time">
-						<span>
-							50分鐘前
-						</span>
+						2018年6月30日
 					</div>
-					<hr>
 					<div class="new_comment">
-						<form>
+						<hr>
+						<form id="submit_comment">
 							<div class="my_form_control">
 								<input type="text" id="new_comment_input" placeholder="留言⋯⋯" class="my_form_control_input">
-								<button type="submit" id="new_comment_btn" class="my_form_control_btn my_form_control_btn_disable" disabled>
+								<button type="submit" id="new_comment_btn" class="my_form_control_btn my_form_control_btn_disable">
 									發佈
 								</button>
 							</div>
@@ -88,5 +91,112 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- 查看like名單的modal -->
+	<div id="like_list" class="modal">
+		<div class="modal_content">
+			<div class="modal_content_header">
+				說讚的用戶
+				<a class="close">
+					<span class="close_icon"></span>
+				</a>
+			</div>
+			<div class="modal_content_body">
+				<div class="like_member">
+					<div class="user_photo">
+						<a>
+							<img src="https://instagram.ftpe7-1.fna.fbcdn.net/vp/d61ae4f9c2e4008727f4bc9b9d30d8a6/5B9C967E/t51.2885-19/s150x150/28429095_1975351326126112_3626219335866908672_n.jpg" alt="">
+						</a>
+					</div>
+					<div class="user">
+						<a class="username" data-username="raoya">
+							raoya
+						</a>
+						<div class="user_name">
+							Rao Ya
+						</div>
+					</div>
+					<div class="follow">
+						<button class="unfollow is_follow">追蹤中</button>
+					</div>
+				</div>
+				<div class="like_member">
+					<div class="user_photo">
+						<a>
+							<img src="https://instagram.ftpe7-1.fna.fbcdn.net/vp/6f8e94670cb5d0613acc8014bed38284/5B91764E/t51.2885-19/s150x150/26071365_344693919343632_2160216160153370624_n.jpg" alt="">
+						</a>
+					</div>
+					<div class="user">
+						<a class="username" data-username="jiayiii106">
+							jiayiii106
+						</a>
+						<div class="user_name">
+							張家毅 Wilwer
+						</div>
+					</div>
+					<div class="follow">
+						<button class="is_follow">追蹤</button>
+					</div>
+				</div>
+				<div class="like_member">
+					<div class="user_photo">
+						<a>
+							<img src="https://instagram.ftpe7-1.fna.fbcdn.net/vp/f4c9b172f08f33c9d1e97bdc2e10cb05/5B95E9A8/t51.2885-19/s150x150/16788688_1444596098906465_2496303050486972416_a.jpg" alt="">
+						</a>
+					</div>
+					<div class="user">
+						<a class="username" data-username="yowei_andy">
+							yowei_andy
+						</a>
+						<div class="user_name">
+							祐瑋
+						</div>
+					</div>
+					<div class="follow">
+						<button class="unfollow is_follow">追蹤中</button>
+					</div>
+				</div>
+				<div class="like_member">
+					<div class="user_photo">
+						<a>
+							<img src="https://instagram.ftpe7-1.fna.fbcdn.net/vp/8eca0c8f9b827caa6b391a39bc28067f/5B9AFF60/t51.2885-19/s150x150/13256598_1346329998712259_163190061_a.jpg" alt="">
+						</a>
+					</div>
+					<div class="user">
+						<a class="username" data-username="nifay0208">
+							nifay0208
+						</a>
+						<div class="user_name">
+							林德輔
+						</div>
+					</div>
+					<div class="follow">
+						<button class="unfollow is_follow">追蹤中</button>
+					</div>
+				</div>
+				<div class="like_member">
+					<div class="user_photo">
+						<a>
+							<img src="https://instagram.ftpe7-1.fna.fbcdn.net/vp/d85753a18bbd99070447a67ea05af1dd/5B942CD8/t51.2885-19/11287855_407086892831094_909270068_a.jpg" alt="">
+						</a>
+					</div>
+					<div class="user">
+						<a class="username" data-username="tingyu.lai">
+							tingyu.lai
+						</a>
+						<div class="user_name">
+							賴亭予
+						</div>
+					</div>
+					<div class="follow">
+						<button class="unfollow is_follow">追蹤中</button>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+	<script src="js/index.js"></script>
 </body>
 </html>

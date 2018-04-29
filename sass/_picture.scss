@@ -91,6 +91,34 @@
 	}
 }
 
+.actions{
+	margin-left: -8px;
+	& .action{
+		display: inline-block;
+		padding: 8px;
+		cursor: pointer;
+		&.like.active .like_icon{
+			background-position: -157px -510px;
+		}
+	}
+}
+
+.action_icon{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	&.like_icon{
+		background-image: $ig_icon_url;
+    	background-repeat: no-repeat;
+    	background-position: -293px -399px;
+	}
+	&.add_comment_icon{
+		background-image: $ig_icon_url;
+    	background-repeat: no-repeat;
+    	background-position: -319px -399px;
+	}
+}
+
 .username {
 	font-weight: 600;
 	margin-right: 0.3em;
@@ -123,6 +151,12 @@
    	color: $time_color;
 }
 
+.delete{
+	display: inline-block;
+	float: right;
+	cursor: pointer;
+}
+
 .my_form_control{
 	display: flex;
 	& .my_form_control_input{
@@ -133,42 +167,10 @@
 		}
 	}
 	& .my_form_control_btn{
+		color: $new_comment_btn_color_enable;
 		border: 0;
-	}
-}
-
-.my_form_control_btn_enable{
-	color: $new_comment_btn_color_enable;
-}
-
-.my_form_control_btn_disable{
-	color: $new_comment_btn_color_disable;
-}
-
-.actions{
-	margin-left: -8px;
-	& .action{
-		display: inline-block;
-		padding: 8px;
-		cursor: pointer;
-		&.like.active .like_icon{
-			background-position: -157px -510px;
+		&.my_form_control_btn_disable{
+			color: $new_comment_btn_color_disable;
 		}
-	}
-}
-
-.action_icon{
-	display: inline-block;
-	width: 24px;
-	height: 24px;
-	&.like_icon{
-		background-image: $ig_icon_url;
-    	background-repeat: no-repeat;
-    	background-position: -293px -399px;
-	}
-	&.add_comment_icon{
-		background-image: $ig_icon_url;
-    	background-repeat: no-repeat;
-    	background-position: -319px -399px;
 	}
 }

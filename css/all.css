@@ -307,13 +307,14 @@ template {
 
 a, a:active, a:focus, a:visited {
   text-decoration: none;
-  color: inherit; }
+  color: inherit;
+  cursor: pointer; }
 
 hr {
   border: 1px solid #efefef; }
 
-body {
-  height: 100vh; }
+html, body {
+  height: 100%; }
 
 .wrapper {
   width: 100%;
@@ -637,6 +638,28 @@ body {
   100% {
     opacity: 1; } }
 
+.actions {
+  margin-left: -8px; }
+  .actions .action {
+    display: inline-block;
+    padding: 8px;
+    cursor: pointer; }
+    .actions .action.like.active .like_icon {
+      background-position: -157px -510px; }
+
+.action_icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px; }
+  .action_icon.like_icon {
+    background-image: url(https://www.instagram.com/static/bundles/base/sprite_core.png/b32d382b99a8.png);
+    background-repeat: no-repeat;
+    background-position: -293px -399px; }
+  .action_icon.add_comment_icon {
+    background-image: url(https://www.instagram.com/static/bundles/base/sprite_core.png/b32d382b99a8.png);
+    background-repeat: no-repeat;
+    background-position: -319px -399px; }
+
 .username {
   font-weight: 600;
   margin-right: 0.3em; }
@@ -663,6 +686,11 @@ body {
   letter-spacing: 0.2px;
   color: #999; }
 
+.delete {
+  display: inline-block;
+  float: right;
+  cursor: pointer; }
+
 .my_form_control {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -681,32 +709,99 @@ body {
     .my_form_control .my_form_control_input::placeholder {
       color: #999; }
   .my_form_control .my_form_control_btn {
+    color: #3897f0;
     border: 0; }
+    .my_form_control .my_form_control_btn.my_form_control_btn_disable {
+      color: #b4daff; }
 
-.my_form_control_btn_enable {
-  color: #3897f0; }
+.modal {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5); }
 
-.my_form_control_btn_disable {
-  color: #b4daff; }
+.modal_content {
+  background-color: white;
+  width: 70%;
+  margin: 20% auto;
+  -webkit-box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.7);
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.7); }
 
-.actions {
-  margin-left: -8px; }
-  .actions .action {
-    display: inline-block;
-    padding: 8px;
-    cursor: pointer; }
-    .actions .action.like.active .like_icon {
-      background-position: -157px -510px; }
+.modal_content_header {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  border-bottom: solid 2px #dbdbdb;
+  color: #262626;
+  height: 45px;
+  padding-top: 14px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600; }
 
-.action_icon {
+.close {
   display: inline-block;
-  width: 24px;
-  height: 24px; }
-  .action_icon.like_icon {
+  cursor: pointer;
+  position: absolute;
+  left: 11px; }
+  .close .close_icon {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background-position: -278px -208px;
     background-image: url(https://www.instagram.com/static/bundles/base/sprite_core.png/b32d382b99a8.png);
-    background-repeat: no-repeat;
-    background-position: -293px -399px; }
-  .action_icon.add_comment_icon {
-    background-image: url(https://www.instagram.com/static/bundles/base/sprite_core.png/b32d382b99a8.png);
-    background-repeat: no-repeat;
-    background-position: -319px -399px; }
+    background-repeat: no-repeat; }
+
+.like_member {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  border-bottom: solid 1px #efefef;
+  padding: 8px 16px;
+  font-size: 14px;
+  line-height: 18px; }
+
+.user_photo {
+  margin-right: 13px;
+  width: 30px;
+  height: 30px; }
+  .user_photo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; }
+
+.user_name {
+  color: #999;
+  font-weight: 400; }
+
+.follow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-left: auto; }
+  .follow .is_follow {
+    cursor: pointer;
+    padding: 0 12px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 600;
+    background: #3897f0;
+    border-color: #3897f0;
+    color: #fff; }
+    .follow .is_follow.unfollow {
+      background-color: inherit;
+      border-color: #dbdbdb;
+      color: #262626; }
+
+.comment, .new_comment, .modal {
+  display: none; }
